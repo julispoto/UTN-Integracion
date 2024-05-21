@@ -1,14 +1,13 @@
 <?php 
-include 'connectvars.php';
-$conexion = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
-
-
-  $query=mysqli_query($conexion,"SELECT * FROM listado");
-  
   header("content-type: application/vnd.ms-excel");
   header("content-disposition: attachment; filename=detalles.xls");
   header("pragma: no-cache");
   header("expires: 0"); 
+?>
+<?php
+include 'connectvars.php';
+$conexion = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
+$query=mysqli_query($conexion,"SELECT * FROM listado");
   
   echo"<table border=1>";
   echo "<tr>";
@@ -25,5 +24,6 @@ $conexion = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     echo "</tr>";
 }
 echo "</table>";
+mysqli_close($conexion);
 ?>
 

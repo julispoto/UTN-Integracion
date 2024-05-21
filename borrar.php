@@ -22,13 +22,18 @@ include 'connectvars.php';
                     echo '<option value="' . $row['dni'] . '">' . $row["firstname"] . '</option>';
                 } 
                 mysqli_free_result($result);
+                mysqli_close($conexion);
+
                 ?>
             </select>
             <input type="submit" value="Eliminar">
+            <label for=""><?php if (isset($_POST['submit'])) {echo "  Registro eliminado";} ?></label>
+
         </form>
         <ul>
             <li><a href="index.php">Volver a la lista de Alumnos</a></li>
         </ul>
+        
     <?php
 include "footer.php";
     ?>

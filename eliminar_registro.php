@@ -1,4 +1,6 @@
-<?php
+<?php // eliminar registro
+header("Location: index.php");
+
 include 'connectvars.php';
 
 //pasamos los datos del formulario
@@ -9,6 +11,6 @@ $conexion = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 //creamos la sentencia sql y la ejecutamos
 $ssql="DELETE FROM listado WHERE dni='$dni'";
 mysqli_query($conexion,$ssql);
-header("Location: index.php");
+mysqli_close($conexion);
 
 ?>
